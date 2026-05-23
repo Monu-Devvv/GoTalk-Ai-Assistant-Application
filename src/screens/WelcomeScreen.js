@@ -1,18 +1,33 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 
 export default function WelcomeScreen() {
+
+  const navigation = useNavigation();
+
   return (
-    <SafeAreaView className='flex-1 flex  justify-around bg-white'>
-        <View className='space-y-2'>
-            <Text className='text-center text-4xl font-bold text-gray-700'>
-                GoTalk
-            </Text>
-            <Text className='text-center tracking-wider text-gray-600 font-semibold'>
-               The Future Is Here, Powered By Ai 
-            </Text>
-        </View>
+    <SafeAreaView className='flex-1 flex justify-around bg-white'>
+      <View className='space-y-2'>
+        <Text style={{ fontSize: wp(10) }} className='text-center font-bold text-gray-700'>
+          GoTalk
+        </Text>
+        <Text style={{ fontSize: wp(4) }} className='text-center tracking-wider text-gray-600 font-semibold'>
+          The Future Is Here, Powered By Ai
+        </Text>
+      </View>
+      
+      <View className='flex-row justify-center'>
+        <Image source={require('../../assests/image/welcome.png')} style={{ width: wp(75), height: wp(75) }} />
+      </View>
+      
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        className='bg-emerald-700 mx-5 p-4 rounded-2*1'>
+        <Text style={{ fontSize: wp(6) }} className='text-center font-bold text-white text-2*1'>Get Started</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   )
 }

@@ -11,17 +11,26 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.gotalk"
+      "bundleIdentifier": "com.yourname.gotalk",
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "GoTalk needs speech recognition to understand you.",
+        "NSMicrophoneUsageDescription": "GoTalk needs microphone access to hear your voice."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.yourname.gotalk"
+      "package": "com.yourname.gotalk",
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "plugins": [
       [
@@ -31,6 +40,11 @@
           "speechRecognitionPermission": "GoTalk needs speech recognition to understand you."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bb8fabed-f719-4271-a739-d1d448dcf18a"
+      }
+    }
   }
 }
